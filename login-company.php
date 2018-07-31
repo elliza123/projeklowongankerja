@@ -70,7 +70,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
               if(isset($_SESSION['registerCompleted'])) {
                 ?>
                 <div>
-                  <p class="text-center">You Have Registered Successfully! Your Account Approval Is Pending By Admin</p>
+                  <p class="text-center">Anda Telah Berhasil Mendaftar! Tunggu Persetujuan Akun Dari Admin</p>
                 </div>
               <?php
                unset($_SESSION['registerCompleted']); }
@@ -80,7 +80,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
               if(isset($_SESSION['loginError'])) {
                 ?>
                 <div>
-                  <p class="text-center">Invalid Email/Password! Try Again!</p>
+                  <p class="text-center">Email / Sandi Tidak Valid! Coba lagi!</p>
                 </div>
               <?php
                unset($_SESSION['loginError']); }
