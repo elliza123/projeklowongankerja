@@ -26,7 +26,7 @@ if(isset($_POST)) {
 		while($row = $result->fetch_assoc()) {
 
 			if($row['active'] == '0') {
-				$_SESSION['loginActiveError'] = "Your Account Is Not Active. Check Your Email.";
+				$_SESSION['loginActiveError'] = "Akunmu tidak aktif. Periksa email Anda.";
 		 		header("Location: login-candidates.php");
 				exit();
 			} else if($row['active'] == '1') { 
@@ -47,7 +47,7 @@ if(isset($_POST)) {
 				}
 			} else if($row['active'] == '2') { 
 
-				$_SESSION['loginActiveError'] = "Your Account Is Deactivated. Contact Admin To Reactivate.";
+				$_SESSION['loginActiveError'] = "Akun Anda Dinonaktifkan. Hubungi Admin untuk Mengaktifkan kembali.";
 		 		header("Location: login-candidates.php");
 				exit();
 			}
