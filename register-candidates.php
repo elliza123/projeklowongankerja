@@ -162,7 +162,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
                     Password TIdak Cocok!! 
                   </div>
               <div class="form-group">
-                <input class="form-control input-lg" type="text" id="contactno" name="contactno" minlength="10" maxlength="10" onkeypress="return validatePhone(event);" placeholder="Nomor Handphone">
+                <input class="form-control input-lg" type="text" id="contactno" name="contactno" minlength="10" maxlength="12" onkeypress="return validatePhone(event);" placeholder="Nomor Handphone">
               </div>
               <div class="form-group">
                 <textarea class="form-control input-lg" rows="4" id="address" name="address" placeholder="Alamat"></textarea>
