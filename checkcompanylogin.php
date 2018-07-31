@@ -26,11 +26,11 @@ if(isset($_POST)) {
 		while($row = $result->fetch_assoc()) {
 
 			if($row['active'] == '2') {
-				$_SESSION['companyLoginError'] = "Your Account Is Still Pending Approval.";
+				$_SESSION['companyLoginError'] = "Akun Anda Masih Menunggu Persetujuan.";
 				header("Location: login-company.php");
 				exit();
 			} else if($row['active'] == '0') {
-				$_SESSION['companyLoginError'] = "Your Account Is Rejected. Please Contact For More Info.";
+				$_SESSION['companyLoginError'] = "Akun Anda Ditolak. Silakan Hubungi Untuk Info Lebih Lanjut.";
 				header("Location: login-company.php");
 				exit();
 			} else if($row['active'] == '1') {
@@ -43,7 +43,7 @@ if(isset($_POST)) {
 				header("Location: company/index.php");
 				exit();
 			} else if($row['active'] == '3') {
-				$_SESSION['companyLoginError'] = "Your Account Is Deactivated. Contact Admin For Reactivation.";
+				$_SESSION['companyLoginError'] = "Akun Anda Dinonaktifkan. Hubungi Admin Untuk Reaktivasi.";
 				header("Location: login-company.php");
 				exit();
 			}
