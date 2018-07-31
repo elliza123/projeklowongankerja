@@ -138,7 +138,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
               if(isset($_SESSION['registerError'])) {
                 ?>
                 <div class="form-group">
-                  <label style="color: red;">Email Already Exists! Choose A Different Email!</label>
+                  <label style="color: red;">Email Sudah Digunakan! Gunakan Email yang Berbeda!</label>
                 </div>
               <?php
                unset($_SESSION['registerError']); }
