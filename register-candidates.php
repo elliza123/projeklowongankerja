@@ -13,7 +13,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Job Portal</title>
+  <title>Mendaftar Sebagai Pencari Kerja</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -46,9 +46,9 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
     <!-- Logo -->
     <a href="index.php" class="logo logo-bg">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>J</b>P</span>
+      <span class="logo-mini"><b>C</b>K</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Job</b> Portal</span>
+      <span class="logo-lg"><b>Cari</b> Kerja</span>
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
@@ -57,14 +57,14 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <li>
-            <a href="jobs.php">Jobs</a>
+            <a href="jobs.php">Lowongan Pekerjaan</a>
           </li>
           <?php if(empty($_SESSION['id_user']) && empty($_SESSION['id_company'])) { ?>
           <li>
-            <a href="login.php">Login</a>
+            <a href="login.php">Masuk</a>
           </li>
           <li>
-            <a href="sign-up.php">Sign Up</a>
+            <a href="sign-up.php">Daftar</a>
           </li>  
           <?php } else { 
 
@@ -81,7 +81,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
           </li>
           <?php } ?>
           <li>
-            <a href="logout.php">Logout</a>
+            <a href="logout.php">Keluar</a>
           </li>
           <?php } ?>          
         </ul>
@@ -95,43 +95,43 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
     <section class="content-header">
       <div class="container">
         <div class="row latest-job margin-top-50 margin-bottom-20 bg-white">
-          <h1 class="text-center margin-bottom-20">CREATE YOUR PROFILE</h1>
+          <h1 class="text-center margin-bottom-20">Buat Akun Barumu</h1>
           <form method="post" id="registerCandidates" action="adduser.php" enctype="multipart/form-data">
             <div class="col-md-6 latest-job ">
               <div class="form-group">
-                <input class="form-control input-lg" type="text" id="fname" name="fname" placeholder="First Name *" required>
+                <input class="form-control input-lg" type="text" id="fname" name="fname" placeholder="Nama Depan *" required>
               </div>
               <div class="form-group">
-                <input class="form-control input-lg" type="text" id="lname" name="lname" placeholder="Last Name *" required>
+                <input class="form-control input-lg" type="text" id="lname" name="lname" placeholder="Nama Belakang *" required>
               </div>
               <div class="form-group">
                 <input class="form-control input-lg" type="text" id="email" name="email" placeholder="Email *" required>
               </div>
               <div class="form-group">
-                <textarea class="form-control input-lg" rows="4" id="aboutme" name="aboutme" placeholder="Brief intro about yourself *" required></textarea>
+                <textarea class="form-control input-lg" rows="4" id="aboutme" name="aboutme" placeholder="Ceritakan Sedikit Tentang Anda *" required></textarea>
               </div>
               <div class="form-group">
-                <label>Date Of Birth</label>
-                <input class="form-control input-lg" type="date" id="dob" min="1960-01-01" max="1999-01-31" name="dob" placeholder="Date Of Birth">
+                <label>Tanggal Lahir</label>
+                <input class="form-control input-lg" type="date" id="dob" min="1960-01-01" max="2005-01-31" name="dob" placeholder="Tanggal lahir">
               </div>
               <div class="form-group">
-                <input class="form-control input-lg" type="text" id="age" name="age" placeholder="Age" readonly>
+                <input class="form-control input-lg" type="text" id="age" name="age" placeholder="Umur" readonly>
               </div>
               <div class="form-group">
                 <label>Passing Year</label>
-                <input class="form-control input-lg" type="date" id="passingyear" name="passingyear" placeholder="Passing Year">
+                <input class="form-control input-lg" type="date" id="passingyear" name="passingyear" placeholder="Terakhir Bekerja">
               </div>       
               <div class="form-group">
-                <input class="form-control input-lg" type="text" id="qualification" name="qualification" placeholder="Highest Qualification">
+                <input class="form-control input-lg" type="text" id="qualification" name="qualification" placeholder="Pencapaian Tertinggi">
               </div>
               <div class="form-group">
-                <input class="form-control input-lg" type="text" id="stream" name="stream" placeholder="Stream">
+                <input class="form-control input-lg" type="text" id="stream" name="stream" placeholder="Bagian/Jurusan Dalam Kerja">
               </div>                    
               <div class="form-group checkbox">
-                <label><input type="checkbox"> I accept terms & conditions</label>
+                <label><input type="checkbox"> Saya menerima syarat & ketentuan</label>
               </div>
               <div class="form-group">
-                <button class="btn btn-flat btn-success">Register</button>
+                <button class="btn btn-flat btn-success">Daftar</button>
               </div>
               <?php 
               //If User already registered with this email then show error message.
@@ -156,32 +156,32 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
                 <input class="form-control input-lg" type="password" id="password" name="password" placeholder="Password *" required>
               </div>
               <div class="form-group">
-                <input class="form-control input-lg" type="password" id="cpassword" name="cpassword" placeholder="Confirm Password *" required>
+                <input class="form-control input-lg" type="password" id="cpassword" name="cpassword" placeholder="Konfirmasi Password *" required>
               </div>
               <div id="passwordError" class="btn btn-flat btn-danger hide-me" >
-                    Password Mismatch!! 
+                    Password TIdak Cocok!! 
                   </div>
               <div class="form-group">
-                <input class="form-control input-lg" type="text" id="contactno" name="contactno" minlength="10" maxlength="10" onkeypress="return validatePhone(event);" placeholder="Phone Number">
+                <input class="form-control input-lg" type="text" id="contactno" name="contactno" minlength="10" maxlength="10" onkeypress="return validatePhone(event);" placeholder="Nomor Handphone">
               </div>
               <div class="form-group">
-                <textarea class="form-control input-lg" rows="4" id="address" name="address" placeholder="Address"></textarea>
+                <textarea class="form-control input-lg" rows="4" id="address" name="address" placeholder="Alamat"></textarea>
               </div>
               <div class="form-group">
-                <input class="form-control input-lg" type="text" id="city" name="city" placeholder="City">
+                <input class="form-control input-lg" type="text" id="city" name="city" placeholder="Kota">
               </div>
               <div class="form-group">
-                <input class="form-control input-lg" type="text" id="state" name="state" placeholder="State">
+                <input class="form-control input-lg" type="text" id="state" name="state" placeholder="Negara">
               </div>
               <div class="form-group">
-                <textarea class="form-control input-lg" rows="4" id="skills" name="skills" placeholder="Enter Skills"></textarea>
+                <textarea class="form-control input-lg" rows="4" id="skills" name="skills" placeholder="Skills Yang Anda Miliki"></textarea>
               </div>              
               <div class="form-group">
-                <input class="form-control input-lg" type="text" id="designation" name="designation" placeholder="Designation">
+                <input class="form-control input-lg" type="text" id="designation" name="designation" placeholder="Posisi Kerja">
               </div>
 
               <div class="form-group">
-                <label style="color: red;">File Format PDF Only!</label>
+                <label style="color: red;">File Hanya Dalam Bentuk PDF!</label>
                 <input type="file" name="resume" class="btn btn-flat btn-danger" required>
               </div>
             </div>
@@ -198,7 +198,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 
   <footer class="main-footer" style="margin-left: 0px;">
     <div class="text-center">
-      <strong>Copyright &copy; 2016-2017 <a href="learningfromscratch.online">Job Portal</a>.</strong> All rights
+      <strong>Copyright &copy; 2018 Cari Kerja</a>.</strong> All rights
     reserved.
     </div>
   </footer>
