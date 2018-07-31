@@ -13,7 +13,7 @@ require_once("db.php");
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Job Portal</title>
+  <title>Mendaftar Sebagai Perusahaan</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -46,9 +46,9 @@ require_once("db.php");
     <!-- Logo -->
     <a href="index.php" class="logo logo-bg">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>J</b>P</span>
+      <span class="logo-mini"><b>C</b>K</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Job</b> Portal</span>
+      <span class="logo-lg"><b>Cari</b> Kerja</span>
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
@@ -57,14 +57,14 @@ require_once("db.php");
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <li>
-            <a href="jobs.php">Jobs</a>
+            <a href="jobs.php">Lowongan Pekerjaan</a>
           </li>
           <?php if(empty($_SESSION['id_user']) && empty($_SESSION['id_company'])) { ?>
           <li>
-            <a href="login.php">Login</a>
+            <a href="login.php">Masuk</a>
           </li>
           <li>
-            <a href="sign-up.php">Sign Up</a>
+            <a href="sign-up.php">Daftar</a>
           </li>  
           <?php } else { 
 
@@ -81,7 +81,7 @@ require_once("db.php");
           </li>
           <?php } ?>
           <li>
-            <a href="logout.php">Logout</a>
+            <a href="logout.php">Keluar</a>
           </li>
           <?php } ?>          
         </ul>
@@ -95,14 +95,14 @@ require_once("db.php");
    <section class="content-header">
       <div class="container">
         <div class="row latest-job margin-top-50 margin-bottom-20 bg-white">
-          <h1 class="text-center margin-bottom-20">CREATE COMPANY PROFILE</h1>
+          <h1 class="text-center margin-bottom-20">Buat Profil Perusahaanmu</h1>
           <form method="post" id="registerCompanies" action="addcompany.php" enctype="multipart/form-data">
             <div class="col-md-6 latest-job ">
               <div class="form-group">
-                <input class="form-control input-lg" type="text" name="name" placeholder="Full Name" required>
+                <input class="form-control input-lg" type="text" name="name" placeholder="Nama Lengkap" required>
               </div>
               <div class="form-group">
-                <input class="form-control input-lg" type="text" name="companyname" placeholder="Company Name" required>
+                <input class="form-control input-lg" type="text" name="companyname" placeholder="Nama Perusahaan" required>
               </div>
               <div class="form-group">
                 <input class="form-control input-lg" type="text" name="website" placeholder="Website">
@@ -111,20 +111,20 @@ require_once("db.php");
                 <input class="form-control input-lg" type="text" name="email" placeholder="Email" required>
               </div>
               <div class="form-group">
-                <textarea class="form-control input-lg" rows="4" name="aboutme" placeholder="Brief info about your company"></textarea>
+                <textarea class="form-control input-lg" rows="4" name="aboutme" placeholder="Ceritakan Sedikit Tentang Perusahaanmu"></textarea>
               </div>
               <div class="form-group checkbox">
-                <label><input type="checkbox" required> I accept terms & conditions</label>
+                <label><input type="checkbox" required> Saya menerima syarat & ketentuan</label>
               </div>
               <div class="form-group">
-                <button type="submit" class="btn btn-flat btn-success">Register</button>
+                <button type="submit" class="btn btn-flat btn-success">Daftar</button>
               </div>
               <?php 
               //If Company already registered with this email then show error message.
               if(isset($_SESSION['registerError'])) {
                 ?>
                 <div>
-                  <p class="text-center" style="color: red;">Email Already Exists! Choose A Different Email!</p>
+                  <p class="text-center" style="color: red;">Email Sudah Digunakan! Gunakan Email yang Berbeda!</p>
                 </div>
               <?php
                unset($_SESSION['registerError']); }
@@ -144,17 +144,17 @@ require_once("db.php");
                 <input class="form-control input-lg" type="password" name="password" placeholder="Password" required>
               </div>
               <div class="form-group">
-                <input class="form-control input-lg" type="password" name="cpassword" placeholder="Confirm Password" required>
+                <input class="form-control input-lg" type="password" name="cpassword" placeholder="Konfirmasi Password" required>
               </div>
                <div id="passwordError" class="btn btn-flat btn-danger hide-me" >
-                    Password Mismatch!! 
+                  Password TIdak Cocok!!
                   </div>
               <div class="form-group">
-                <input class="form-control input-lg" type="text" name="contactno" placeholder="Phone Number" minlength="10" maxlength="10" autocomplete="off" onkeypress="return validatePhone(event);" required>
+                <input class="form-control input-lg" type="text" name="contactno" placeholder="Nomor Handphone" minlength="10" maxlength="12" autocomplete="off" onkeypress="return validatePhone(event);" required>
               </div>
               <div class="form-group">
                 <select class="form-control  input-lg" id="country" name="country" required>
-                <option selected="" value="">Select Country</option>
+                <option selected="" value="">Pilih Negara</option>
                 <?php
                   $sql="SELECT * FROM countries";
                   $result=$conn->query($sql);
@@ -170,16 +170,16 @@ require_once("db.php");
               </div>  
               <div id="stateDiv" class="form-group" style="display: none;">
                 <select class="form-control  input-lg" id="state" name="state" required>
-                  <option value="" selected="">Select State</option>
+                  <option value="" selected="">Pilih Provinsi</option>
                 </select>
               </div>   
               <div id="cityDiv" class="form-group" style="display: none;">
                 <select class="form-control  input-lg" id="city" name="city" required>
-                  <option selected="">Select City</option>
+                  <option selected="">Pilih Kota</option>
                 </select>
               </div>
               <div class="form-group">
-                <label>Attach Company Logo</label>
+                <label>Lampirkan Logo Perusahaan</label>
                 <input type="file" name="image" class="form-control input-lg" required>
               </div>
             </div>
@@ -196,7 +196,7 @@ require_once("db.php");
 
   <footer class="main-footer" style="margin-left: 0px;">
     <div class="text-center">
-      <strong>Copyright &copy; 2016-2017 <a href="learningfromscratch.online">Job Portal</a>.</strong> All rights
+      <strong>Copyright &copy; 2018 Cari Kerja</a>.</strong> All rights
     reserved.
     </div>
   </footer>
