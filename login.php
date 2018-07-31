@@ -13,7 +13,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Job Portal</title>
+  <title>Masuk Akun Cari Kerja</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -46,9 +46,9 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
     <!-- Logo -->
     <a href="index.php" class="logo logo-bg">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>J</b>P</span>
+      <span class="logo-mini"><b>C</b>K</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Job</b> Portal</span>
+      <span class="logo-lg"><b>Cari</b> Kerja</span>
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
@@ -57,14 +57,14 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <li>
-            <a href="jobs.php">Jobs</a>
+            <a href="jobs.php">Lowongan Pekerjaan</a>
           </li>
           <?php if(empty($_SESSION['id_user']) && empty($_SESSION['id_company'])) { ?>
           <li>
-            <a href="login.php">Login</a>
+            <a href="login.php">Masuk</a>
           </li>
           <li>
-            <a href="sign-up.php">Sign Up</a>
+            <a href="sign-up.php">Daftar</a>
           </li>  
           <?php } else { 
 
@@ -81,7 +81,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
           </li>
           <?php } ?>
           <li>
-            <a href="logout.php">Logout</a>
+            <a href="logout.php">Keluar</a>
           </li>
           <?php } ?>          
         </ul>
@@ -95,24 +95,24 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
     <section class="content-header">
       <div class="container">
         <div class="row latest-job margin-top-50 margin-bottom-20">
-          <h1 class="text-center margin-bottom-20">Sign Up</h1>
+          <h1 class="text-center margin-bottom-20">Masuk Akun Anda</h1>
           <div class="col-md-6 latest-job ">
             <div class="small-box bg-yellow padding-5">
               <div class="inner">
-                <h3 class="text-center">Candidates Login</h3>
+                <h3 class="text-center">Sebagai Pekerja</h3>
               </div>
               <a href="login-candidates.php" class="small-box-footer">
-                Login <i class="fa fa-arrow-circle-right"></i>
+                Masuk <i class="fa fa-arrow-circle-right"></i>
               </a>
             </div>
           </div>
           <div class="col-md-6 latest-job ">
             <div class="small-box bg-red padding-5">
               <div class="inner">
-                <h3 class="text-center">Company Login</h3>
+                <h3 class="text-center">Sebagai Perusahaan</h3>
               </div>
               <a href="login-company.php" class="small-box-footer">
-                Login <i class="fa fa-arrow-circle-right"></i>
+                Masuk <i class="fa fa-arrow-circle-right"></i>
               </a>
             </div>
           </div>
@@ -127,7 +127,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 
   <footer class="main-footer" style="margin-left: 0px;">
     <div class="text-center">
-      <strong>Copyright &copy; 2016-2017 <a href="learningfromscratch.online">Job Portal</a>.</strong> All rights
+      <strong>Copyright &copy; 2018 Cari Kerja</a>.</strong> All rights
     reserved.
     </div>
   </footer>
