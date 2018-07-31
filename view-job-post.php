@@ -3,38 +3,16 @@
 //To Handle Session Variables on This Page
 session_start();
 
-if(empty($_SESSION['id_user'])) {
-  header("Location: ../index.php");
-  exit();
-}
-
 
 //Including Database Connection From db.php file to avoid rewriting in all files
-require_once("../db.php");
-
-$sql = "SELECT * FROM apply_job_post WHERE id_user='$_SESSION[id_user]' AND id_jobpost='$_GET[id]'";
-$result = $conn->query($sql);
-if($result->num_rows > 0) 
-{
-  
-  $sql1 = "SELECT * FROM job_post INNER JOIN company ON job_post.id_company=company.id_company WHERE id_jobpost='$_GET[id]'";
-  $result1 = $conn->query($sql1);
-  if($result1->num_rows > 0) 
-  {
-    $row = $result1->fetch_assoc();
-  }
-
-} else {
-  header("Location: index.php");
-  exit();
-}
+require_once("db.php");
 ?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Job Portal</title>
+  <title>Post Lowongan Kerja/title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -44,10 +22,10 @@ if($result->num_rows > 0)
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../css/AdminLTE.min.css">
-  <link rel="stylesheet" href="../css/_all-skins.min.css">
+  <link rel="stylesheet" href="css/AdminLTE.min.css">
+  <link rel="stylesheet" href="css/_all-skins.min.css">
   <!-- Custom -->
-  <link rel="stylesheet" href="../css/custom.css">
+  <link rel="stylesheet" href="css/custom.css">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -67,9 +45,9 @@ if($result->num_rows > 0)
     <!-- Logo -->
     <a href="index.php" class="logo logo-bg">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>J</b>P</span>
+      <span class="logo-mini"><b>C</b>K</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Job</b> Portal</span>
+      <span class="logo-lg"><b>Cari</b> Kerja</span>
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
@@ -78,15 +56,29 @@ if($result->num_rows > 0)
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <li>
-            <a href="../jobs.php">Jobs</a>
-          </li>         
+            <a href="login.php">Masuk</a>
+          </li>
+          <li>
+            <a href="sign-up.php">Daftar</a>
+          </li>          
         </ul>
       </div>
     </nav>
   </header>
 
-  <!-- Content Wrapper. Contains page content -->
+
+
   <div class="content-wrapper" style="margin-left: 0px;">
+
+  <?php
+  
+    $sql = "SELECT * FROM job_post INNER JOIN company ON job_post.id_company=company.id_company WHERE id_jobpost='$_GET[id]'";
+    $result = $conn->query($sql);
+    if($result->num_rows > 0) 
+    {
+      while($row = $result->fetch_assoc()) 
+      {
+  ?>
 
     <section id="candidates" class="content-header">
       <div class="container">
@@ -96,7 +88,7 @@ if($result->num_rows > 0)
               <h2><b><i><?php echo $row['jobtitle']; ?></i></b></h2>
             </div>
             <div class="pull-right">
-              <a href="index.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-arrow-circle-left"></i> Back</a>
+              <a href="jobs.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-arrow-circle-left"></i> Kembali</a>
             </div>
             <div class="clearfix"></div>
             <hr>
@@ -106,17 +98,24 @@ if($result->num_rows > 0)
             <div>
               <?php echo stripcslashes($row['description']); ?>
             </div>
+            <?php 
+            if(isset($_SESSION["id_user"]) && empty($_SESSION['companyLogged'])) { ?>
+            <div>
+              <a href="apply.php?id=<?php echo $row['id_jobpost']; ?>" class="btn btn-success btn-flat margin-top-50">Apply</a>
+            </div>
+            <?php } ?>
             
             
           </div>
           <div class="col-md-3">
             <div class="thumbnail">
-              <img src="../uploads/logo/<?php echo $row['logo']; ?>" alt="companylogo">
+              <img src="uploads/logo/<?php echo $row['logo']; ?>" alt="companylogo">
               <div class="caption text-center">
                 <h3><?php echo $row['companyname']; ?></h3>
-                <p><a href="#" class="btn btn-primary btn-flat" role="button">More Info</a>
+                <p><a href="#" class="btn btn-primary btn-flat" role="button">Info Lebih Lanjut</a>
                 <hr>
                 <div class="row">
+                  <div class="col-md-4"><a href=""><i class="fa fa-address-card-o"></i> Apply</a></div>
                   <div class="col-md-4"><a href=""><i class="fa fa-warning"></i> Report</a></div>
                   <div class="col-md-4"><a href=""><i class="fa fa-envelope"></i> Email</a></div>
                 </div>
@@ -127,6 +126,11 @@ if($result->num_rows > 0)
       </div>
     </section>
 
+    <?php 
+      }
+    }
+    ?>
+
     
 
   </div>
@@ -134,7 +138,7 @@ if($result->num_rows > 0)
 
   <footer class="main-footer" style="margin-left: 0px;">
     <div class="text-center">
-      <strong>Copyright &copy; 2016-2017 <a href="learningfromscratch.online">Job Portal</a>.</strong> All rights
+     <strong>Copyright &copy; 2018 Cari Kerja</a>.</strong> All rights
     reserved.
     </div>
   </footer>
@@ -152,6 +156,9 @@ if($result->num_rows > 0)
 <!-- Bootstrap 3.3.7 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../js/adminlte.min.js"></script>
+<script src="js/adminlte.min.js"></script>
+
+
+
 </body>
 </html>
