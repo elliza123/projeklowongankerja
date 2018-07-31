@@ -73,7 +73,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
     if(isset($_SESSION['registerCompleted'])) {
       ?>
       <div>
-        <p id="successMessage" class="text-center">Check your email!</p>
+        <p id="successMessage" class="text-center">Periksa Emailmu!</p>
       </div>
     <?php
      unset($_SESSION['registerCompleted']); }
@@ -83,7 +83,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
     if(isset($_SESSION['loginError'])) {
       ?>
       <div>
-        <p class="text-center">Invalid Email/Password! Try Again!</p>
+        <p class="text-center">Email / Sandi Tidak Valid! Coba lagi!</p>
       </div>
     <?php
      unset($_SESSION['loginError']); }
@@ -94,7 +94,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
     if(isset($_SESSION['userActivated'])) {
       ?>
       <div>
-        <p class="text-center">Your Account Is Active. You Can Login</p>
+        <p class="text-center">Akun Anda Aktif. Anda Dapat Masuk</p>
       </div>
     <?php
      unset($_SESSION['userActivated']); }
